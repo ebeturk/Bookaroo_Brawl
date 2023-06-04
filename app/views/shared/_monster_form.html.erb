@@ -1,0 +1,35 @@
+<% if monster.persisted? %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="monster-form">
+          <h1>Welcome to the Monster Editor!</h1>
+          <h4>Here you can make little changes to your monster!</h4>
+          <h4>If you want, give it a new name, tell us more about it, and change how it looks like!</h4>
+          <%= simple_form_for(monster, url: monsters_path, html: {class: 'form-group'}) do |f| %>
+          <%= f.input :name, placeholder: "My Monster's Name", label: false, input_html: {class: 'form-control'} %>
+          <%= f.input :description, as: :text, placeholder: "I will describe you my monster in this box", label: false, input_html: {class: 'form-control'} %>
+          <%= f.submit 'Submit', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="monster-form">
+          <h1>"Welcome to the Monster Maker!"</h1>
+          <h4>Here you can bring your monster to life!</h4>
+          <h4>Give it a name, tell us about it, and choose how it looks like!</h4>
+            <%= simple_form_for(monster, url: monsters_path) do |f| %>
+            <%= f.input :name, placeholder: "My Monster's Name", label: false %>
+            <%= f.input :description, as: :text, placeholder: "I will describe you my monster in this box", label: false %>
+            <%= f.submit %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
