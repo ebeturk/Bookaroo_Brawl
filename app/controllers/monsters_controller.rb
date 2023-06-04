@@ -1,5 +1,5 @@
 class MonstersController < ApplicationController
-  before_action :set_monster, only: %i[show edit update]
+  before_action :set_monster, only: %i[show edit update destroy]
   def index
     @monsters = Monster.all
   end
@@ -46,6 +46,11 @@ class MonstersController < ApplicationController
       raise
       render :edit
     end
+  end
+
+  def destroy
+    @monster.destroy
+    redirect_to monsters_path, status: :see_other
   end
 
   private
