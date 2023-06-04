@@ -5,6 +5,6 @@
       <p><%= monster.name %></p>
       <p><%= monster.description %></p>
     </div>
-    <%= button_to 'KILL', monster_path(monster), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to "Delete", monster_path(monster), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   <% end %>
 </p>
