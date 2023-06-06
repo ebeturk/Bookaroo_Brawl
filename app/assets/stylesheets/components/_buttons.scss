@@ -1,0 +1,24 @@
+.btn-gamy {
+  padding: 48px 24px;
+  font-size: 24px;
+  background-color: rgb(126, 102, 222);
+  font-family: $font-main;
+  color: $primary-color;
+  font-weight: light;
+  white-space: pre-line;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-gamy:hover {
+  background-color: #7145eb;
+  transform: translate(0, -3px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.btn-nav {
+  padding: 6px 16px;
+  background-color: $accent-color_three;
+  color: $primary-color;
+}

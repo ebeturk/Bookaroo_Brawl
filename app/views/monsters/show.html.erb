@@ -1,4 +1,16 @@
-<h1>Monsters#show</h1>
-<h3><%= @monster.name %></h3>
-<p><%= @monster.description %></p>
-<p><%= @monster.category %></p>
+<div class="container p-5">
+  <div class="row justify-content-center text-center">
+    <div class="col-lg-6">
+      <h4>Here is your Monster</h4>
+      <h1 class="monster-name"><%= @monster.name %></h1>
+      <p><%= @monster.description %></p>
+      <p><%= @monster.category %></p>
+
+      <%= link_to raw("Tweak<br>Your Monster"), edit_monster_path, class: "btn btn-gamy" %>
+    </div>
+    <div class="nav-links">
+      <%= link_to "Back to Monsters", monsters_path, class: "btn-nav" %>
+      <%= link_to "Feed Your Monster", root_path, class: "btn-nav" %>
+    </div>
+  </div>
+</div>

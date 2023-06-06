@@ -9,26 +9,28 @@ class MonstersController < ApplicationController
 
 
   def new
+     # check if the user already has a monster
+    if current_user.monster.present?
+      redirect_to monster_path(current_user.monster), alert: "Your amazing monster is here!"
+    else
     @monster = Monster.new
+    end
   end
 
   def create
     @monster = Monster.new(monster_params)
     @monster.user = current_user
-
     # calculate age
     age = Date.today.year - current_user.date_of_birth.year
     # assign category
-    @monster.category = if age < 5
-      'toddler'
-    elsif age < 12
-      'pre_school'
-    elsif age < 16
-      'school_age'
-    else
-      'pre_teen'
-    end
-
+    @monster.category =
+      case age
+      when age < 5 then 'toddler'
+      when age < 12 then 'pre_school'
+      when age < 16 then 'school_age'
+      else
+        'pre_teen'
+      end
     if @monster.save
       redirect_to @monster, notice: 'Monster was successfully created.'
     else
@@ -36,8 +38,7 @@ class MonstersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @monster.update(monster_params)
