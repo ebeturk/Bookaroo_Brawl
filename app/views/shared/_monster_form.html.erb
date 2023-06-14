@@ -6,9 +6,10 @@
           <h1>Welcome to the Monster Tweaker!</h1>
           <h4>Here you can make little changes to your monster!</h4>
           <h4>If you want, give it a new name, or tell us more about it, or change how it looks like!</h4>
-          <%= simple_form_for(monster, url: monsters_path, html: {class: 'form-group'}) do |f| %>
+          <%= simple_form_for(monster, html: {multipart: true, class: 'form-group'}) do |f| %>
           <%= f.input :name, placeholder: "My Monster's Name", label: false, input_html: {class: 'form-control'} %>
           <%= f.input :description, as: :text, placeholder: "I will describe you my monster in this box", label: false, input_html: {class: 'form-control'} %>
+          <%= f.input :images, as: :file, label: "Upload Image", input_html: { multiple: true } %>
           <%= f.submit 'Submit', class: 'btn btn-primary' %>
           <% end %>
         </div>
@@ -23,9 +24,10 @@
           <h1>"Welcome to the Monster Maker!"</h1>
           <h4>Here you can bring your monster to life!</h4>
           <h4>Give it a name, tell us about it, and choose how it looks like!</h4>
-            <%= simple_form_for(monster, url: monsters_path) do |f| %>
+            <%= simple_form_for(monster, url: monsters_path, html: {multipart: true, class: 'form-group'}) do |f| %>
             <%= f.input :name, placeholder: "My Monster's Name", label: false %>
             <%= f.input :description, as: :text, placeholder: "I will describe you my monster in this box", label: false %>
+            <%= f.input :images, as: :file, label: "Upload Image", input_html: { multiple: true } %>
             <%= f.submit %>
             <% end %>
         </div>

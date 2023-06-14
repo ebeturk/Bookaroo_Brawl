@@ -1,0 +1,14 @@
+<h2>
+  <%= "Welcome back #{current_user.email}. #{@monster.name} is here!" %>
+</h2>
+<div class="monster-img">
+  <%= cl_image_tag @monster.images.first.key, style: "width: 300px; height: 400px" %>
+</div>
+<h3>
+  <%= "Here are the books #{@monster.name} munched" %>
+</h3>
+<% @monster_books.each do |book| %>
+    <h4>
+      <%= book.title %>
+    </h4>
+  <% end %>

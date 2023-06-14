@@ -3,7 +3,7 @@
     <%= link_to monster_path(monster) do %>
       <div class="clickable">
         <div class="card-small text-center">
-          <%= image_tag "placeholder.png", class: "img-small" %>
+          <%= monster.images.attached? ? (cl_image_tag monster.images.first.key, class: "img-small") : (image_tag "placeholder.png") %>
           <p><%= monster.name %></p>
           <p><%= monster.description %></p>
         </div>

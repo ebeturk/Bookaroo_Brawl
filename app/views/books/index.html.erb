@@ -1,0 +1,20 @@
+<h1 class="text-center">Welcome to the Bookaroo Buffet! 📕📗📘📙📚 </h1>
+<div class="books-container row m-3 g-1">
+    <% @books.each do |book| %>
+      <div class="col">
+        <%= link_to book_path(book) do %>
+          <div class="clickable">
+            <div class="card-small text-center">
+              <%= book.image.attached? ? (cl_image_tag book.image.key, class: "img-small") : (image_tag "placeholder.png") %>
+              <p><%= book.title %></p>
+              <p><%= book.author %></p>
+              <p><%= book.rating %></p>
+              <p><%= book.genre.capitalize if book.genre %></p>
+              <p><%= book.suitable_for.capitalize if book.suitable_for %> Children </p>
+            </div>
+            <%= link_to "Delete", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+</div>

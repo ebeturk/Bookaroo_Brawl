@@ -38,13 +38,13 @@ class MonstersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @monster.update(monster_params)
       redirect_to monster_path(@monster)
     else
-      raise
       render :edit
     end
   end
@@ -54,6 +54,11 @@ class MonstersController < ApplicationController
     redirect_to monsters_path, status: :see_other
   end
 
+  def den
+    @monster = current_user.monster
+    @monster_books = current_user.monster.books
+  end
+
   private
 
   def set_monster
@@ -61,6 +66,6 @@ class MonstersController < ApplicationController
   end
 
   def monster_params
-    params.require(:monster).permit(:name, :description, :category)
+    params.require(:monster).permit(:name, :description, :category, images: [])
   end
 end
