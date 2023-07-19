@@ -1,22 +1,21 @@
-<h1 class="text-center">Welcome to your Monster's Muncies! 📕📗📘📙📚 </h1>
+<h1 class="text-center"><%= current_user.monster.name.capitalize %>'s Muncies! 📕📗📘📙📚 </h1>
 <div class="books-container row m-3 g-1">
   <% @monster_books.each do |book| %>
-  <%= book %>
     <div class="col">
-      <%= link_to book_path(book) do %>
+      <%= link_to book_path(book.book) do %>
         <div class="clickable">
           <div class="card-small text-center">
-            <%= book.book.image.attached? ? (cl_image_tag book.image.key, class: "img-small") : (image_tag "placeholder.png") %>
+            <%= book.book.image.attached? ? (cl_image_tag book.book.image.key, class: "img-small") : (image_tag "placeholder.png") %>
             <p><%= book.book.title %></p>
             <p><%= book.book.author %></p>
             <p><%= book.book.rating %></p>
-            <p><%= book.book.genre.capitalize if book.genre %></p>
-            <p><%= book.book.suitable_for.capitalize if book.suitable_for %> Children </p>
+            <p><%= book.book.genre.capitalize if book.book.genre %></p>
+            <p><%= book.book.suitable_for.capitalize if book.book.suitable_for %> Children </p>
             <p><%= book.reading_status %></p>
-            <p><%= book.reading_date %></p>
+            <p><%= book.read_date %></p>
             <p><%= book.notes %></p>
           </div>
-          <%= link_to "Delete", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <%= link_to "Delete", monster_monster_book_path(id: book.id, monster_id: current_user.monster.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </div>
       <% end %>
     </div>

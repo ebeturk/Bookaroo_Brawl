@@ -1,6 +1,6 @@
 class MonsterBooksController < ApplicationController
   def index
-    @monster_books = current_user.monster.books
+    @monster_books = current_user.monster.monster_books
   end
 
   def new
@@ -16,6 +16,14 @@ class MonsterBooksController < ApplicationController
     else
       redirect_to @monster_book.book, alert: 'This book is already in your monster\'s library.'
     end
+  end
+
+  def destroy
+
+    @monster_book = MonsterBook.find(params[:id])
+
+    @monster_book.destroy
+    redirect_to monster_monster_books_path, status: :see_other
   end
 
   private

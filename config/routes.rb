@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :books
   resources :monsters do
     resources :books
-    resources :monster_books, only: [:index, :new, :create]
+    resources :monster_books, only: [:index, :new, :create, :destroy]
   end
 
   # Defines the root path route ("/")

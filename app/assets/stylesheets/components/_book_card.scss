@@ -1,0 +1,55 @@
+.book-container {
+margin: 32px 16px;
+
+}
+.book-cover{
+  background-color: $accent-color_three;
+  color: $accent-color_one;
+  width: 130px;
+  height: 96%;
+  border-radius: 0 15px 15px 0;
+  position: relative;
+  display: inline-block;
+  font-family: $font-fallback;
+  font-weight: 500;
+  text-align: center;
+  font-size: 20px;
+  border: none;
+  box-shadow: 1px 1px 1px rgb(151, 211, 175),
+    2px 2px 1px rgb(151, 211, 175),
+    3px 3px 1px gray,
+    4px 4px 1px rgb(151, 211, 175),
+    5px 5px 1px rgb(151, 211, 175),
+    6px 6px 1px gray,
+    7px 7px 1px rgb(21, 148, 19),
+    8px 8px 1px rgb(151, 211, 175),
+    9px 9px 1px gray,
+    10px 10px 1px rgb(151, 211, 175),
+    11px 11px 1px rgb(151, 211, 175),
+    12px 12px 1px gray,
+    13px 13px 1px rgb(151, 211, 175),
+    14px 14px 1px rgb(151, 211, 175),
+    15px 15px 1px gray,
+
+    25px 25px 15px rgba(0,0,0,.3);
+
+  z-index: 3;
+}
+
+.book-cover p{
+  justify-content:center center;
+}
+.book-back{
+  height: 100%;
+  background-color: #e6af39;
+  border-radius: 0 32px 32px 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+}
+
+.pages{
+  background-color: #F7C04A;
+  border-radius: 0 15px 15px 0;
+  height: 98%;
+  width: 93%;
+  margin-left: 4px;
+}
