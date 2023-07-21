@@ -1,13 +1,15 @@
 <h1>Monsters are all here 👹 </h1>
   <% @monsters.each do |monster| %>
     <%= link_to monster_path(monster) do %>
-      <div class="clickable">
-        <div class="card-small text-center">
+      <div class="clickable monster">
+        <div class="card-small text-center monster-card">
+        <div class="remove-btn">
+          <%= link_to "🗑", monster_path(monster), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
           <%= monster.images.attached? ? (cl_image_tag monster.images.first.key, class: "img-small") : (image_tag "placeholder.png") %>
-          <p><%= monster.name %></p>
+          <h4><%= monster.name.upcase %></h4>
           <p><%= monster.description %></p>
         </div>
-          <%= link_to "Delete", monster_path(monster), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       </div>
     <% end %>
   <% end %>

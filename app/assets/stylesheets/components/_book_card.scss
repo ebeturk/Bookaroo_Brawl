@@ -1,7 +1,8 @@
 .book-container {
 margin: 32px 16px;
-
+max-width: 320px;
 }
+
 .book-cover{
   background-color: $accent-color_three;
   color: $accent-color_one;
@@ -42,14 +43,52 @@ margin: 32px 16px;
 .book-back{
   height: 100%;
   background-color: #e6af39;
-  border-radius: 0 32px 32px 0;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  border-radius: 0 30px 20px 20px;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.3);
 }
 
 .pages{
   background-color: #F7C04A;
   border-radius: 0 15px 15px 0;
-  height: 98%;
-  width: 93%;
-  margin-left: 4px;
+  // height: 98%;
+  width: 95%;
+}
+
+.book-info {
+  height: 24vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book-info p {
+  font-family: $font-main;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $button-color;
+  margin: 0 auto;
+}
+
+.book-info h4 {
+  color: $button-color;
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+.remove-btn {
+  font-size: 16px;
+}
+
+.book-image {
+  width: 150px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.img-small {
+  height: 96%;
+  width: 96%;
+  max-height: 200px;
+  max-width: 150px;
 }

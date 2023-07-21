@@ -5,15 +5,23 @@
       <%= link_to book_path(book) do %>
         <div class="book-back">
           <div class="pages clickable book-cover">
-            <div class="card-small text-center">
-              <%= book.image.attached? ? (cl_image_tag book.image.key, class: "img-small") : (image_tag "placeholder.png") %>
-              <p><%= book.title %></p>
-              <p><%= book.author %></p>
-              <p><%= book.rating %></p>
-              <p><%= book.genre.capitalize if book.genre %></p>
-              <p><%= book.suitable_for.capitalize if book.suitable_for %> Children </p>
+            <div class="remove-btn">
+              <%= link_to "🗑", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
             </div>
-            <%= link_to "Delete", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            <div class="card-small text-center">
+            <div class="btn-remove">
+              <div class="book-image">
+                <%= book.image.attached? ? (cl_image_tag book.image.key, class: "img-small") : (image_tag "placeholder.png", class: "img-small") %>
+              </div>
+              <div class="book-info">
+                <h4><%= book.title %></h4>
+                <p><%= book.author %></p>
+                <p><%= book.rating %></p>
+                <p><%= book.genre.capitalize if book.genre %></p>
+                <p><%= book.suitable_for.capitalize if book.suitable_for %> Children </p>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       <% end %>

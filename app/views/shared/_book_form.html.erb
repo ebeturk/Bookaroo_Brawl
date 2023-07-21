@@ -5,11 +5,11 @@
         <div class="monster-form">
           <h1>🚧Your Book Needs a Little Twist?</h1>
           <h4>🚧Edit your review, or do what? I don't know yet.</h4>
-          <%= simple_form_for(book, html: {class: 'form-group', multipart: true}) do |f| %>
+          <%= simple_form_for(book, data: { controller: "submit" }, html: {class: 'form-group', multipart: true}) do |f| %>
           <%= f.input :title, placeholder: "Book Title", label: false, input_html: {class: 'form-control'} %>
-          <%= f.input :description, as: :text, placeholder: "I will describe the book in this box", label: false, input_html: {class: 'form-control'} %>
+          <%= f.input :description, as: :text, placeholder: "I will describe the book in this box", label: false, input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}, class: 'form-control'} %>
           <%= f.input :author, placeholder: "Author", label: false, input_html: {class: 'form-control'} %>
-          <%= f.input :rating, placeholder: "Rating", label: false, input_html: {class: 'form-control'} %>
+          <%= f.input :rating, collection: (1..5).to_a, prompt: "Select a Rating", label: false, input_html: {class: 'form-control'} %>
           <%= f.input :image, as: :file, label: "Upload Image" %>
           <%= f.submit 'Submit', class: 'btn btn-primary' %>
           <% end %>
@@ -24,11 +24,11 @@
         <div class="monster-form">
           <h1>🚧Add a book to the Bookaroo Buffet!</h1>
           <h4>🚧 Give its title, tell us about it, and choose its cover or I don't know yet!</h4>
-            <%= simple_form_for(book, html: {class: 'form-group', multipart: true}) do |f| %>
+            <%= simple_form_for(book, data: { controller: "submit" }, html: {class: 'form-group', multipart: true}) do |f| %>
             <%= f.input :title, placeholder: "Book Title", label: false %>
             <%= f.input :description, as: :text, placeholder: "I will describe the book in this box", label: false %>
             <%= f.input :author, placeholder: "Author", label: false, input_html: {class: 'form-control'} %>
-            <%= f.input :rating, placeholder: "Rating", label: false, input_html: {class: 'form-control'} %>
+            <%= f.input :rating, collection: (1..5).to_a, prompt: "Select a Rating", label: false, input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}, class: 'form-control'} %>
             <%= f.input :image, as: :file, label: "Upload Image"%>
             <%= f.submit %>
             <% end %>

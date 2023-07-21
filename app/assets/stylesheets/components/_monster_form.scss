@@ -1,3 +1,18 @@
 .monster-form {
-  
+
+}
+
+.gl-star-rating--stars[aria-label="Select a Rating"] {
+  color: #ff0000; /* Change color */
+  font-size: 14px; /* Change font size */
+  /* Add more styles as needed */
+}
+
+:root {
+  --gl-tooltip-font-size: 16px; /* Increase font size of tooltip */
+}
+
+[data-star-rating] .gl-star-rating--stars[aria-label]::after,
+[data-star-rating] .gl-star-rating--stars[aria-label]::before {
+    background: $secondary-color; /* Change to your preferred color */
 }
